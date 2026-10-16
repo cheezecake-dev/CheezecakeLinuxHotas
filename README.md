@@ -1,4 +1,4 @@
-# Linux HOTAS
+# Cheezecake's Linux HOTAS
 
 A Space Engineers 1 plugin for native Linux (Pulsar's Interim launcher with CometWorks' linux-compat, no Proton): fly with
 joysticks, a separate stick and throttle included, flat or in VR with Cheezecake's SE VR.
@@ -25,7 +25,7 @@ On Windows, use ananace's [Analog Grid Control](https://github.com/ananace/dotne
 
 ## Setting up
 
-Pulsar's plugin list, Linux HOTAS, Settings: pick a device, Add bind, then Detect and move the axis or press the button
+Pulsar's plugin list, Cheezecake's Linux HOTAS, Settings: pick a device, Add bind, then Detect and move the axis or press the button
 you want, and choose what it does. Each axis has invert, deadzone and curve. The settings are saved in
 `Storage/LinuxHotas.cfg` under the game's user data folder, which can also be edited by hand:
 

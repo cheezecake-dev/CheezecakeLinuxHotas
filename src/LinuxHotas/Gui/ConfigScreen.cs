@@ -60,7 +60,7 @@ namespace LinuxHotas.Gui
         public override void RecreateControls(bool constructor)
         {
             base.RecreateControls(constructor);
-            AddCaption("Linux HOTAS");
+            AddCaption("Cheezecake's Linux HOTAS");
             var config = Plugin.Config;
 
             float y = -0.36f;
