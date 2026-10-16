@@ -24,7 +24,8 @@ namespace LinuxHotas.Devices
 
         public string Path { get; }
         public string Name { get; }
-        /// <summary>Stable across replugs and reboots: name plus USB serial when the device reports one.</summary>
+        /// <summary>Stable across replugs and reboots: name plus USB serial when the device reports one. Identical devices
+        /// without one are told apart by order found (" #2", " #3"), which is not stable.</summary>
         public string Key { get; internal set; }
         public bool Connected => fd >= 0;
 

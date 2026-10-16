@@ -30,13 +30,28 @@ you want, and choose what it does. Each axis has invert, deadzone and curve. The
 `Storage/LinuxHotas.cfg` under the game's user data folder, which can also be edited by hand:
 
 ```xml
-<Device Key="Thrustmaster T.16000M">
-  <Bind Input="Y" Output="Pitch" />
-  <Bind Input="Z" Output="Throttle" Invert="true" />
-  <Bind Input="Button1" Output="FirePrimary" />
-  <Bind Input="Hat1Up" Output="NextToolbarSlot" />
-</Device>
+<?xml version="1.0" encoding="utf-8"?>
+<LinuxHotas>
+  <!-- Fly as soon as seated; off waits for the ToggleActive action. -->
+  <ActiveByDefault>true</ActiveByDefault>
+  <!-- Send to [AnalogThrottle] scripts, on one tick in this many in multiplayer. -->
+  <WolfeScripts>true</WolfeScripts>
+  <MultiplayerScriptEveryTicks>3</MultiplayerScriptEveryTicks>
+  <Devices>
+    <Device Key="Thrustmaster T.16000M">
+      <Bind Input="Y" Output="Pitch" />
+      <Bind Input="Z" Output="Throttle" Invert="true" Deadzone="0.02" />
+      <Bind Input="X" Output="Roll" Curve="0.5" />
+      <Bind Input="Button1" Output="FirePrimary" />
+      <Bind Input="Hat1Up" Output="NextToolbarSlot" />
+    </Device>
+  </Devices>
+</LinuxHotas>
 ```
+
+A device's `Key` is its name as Linux reports it, followed by its serial in brackets when it has one, as the settings
+screen's device list shows it. Inputs are `X` `Y` `Z` `RX` `RY` `RZ` `Slider0`..`Slider7`, `Button1`.., and `Hat1Up`/`Right`/`Down`/`Left`;
+outputs are the names the settings screen shows, without spaces or the "(stick)"/"(lever)" note.
 
 The game reads one joystick of its own, the one picked in Options > Controls. If that is one of the devices bound here,
 the game's own joystick controls act on the ship as well; pick no joystick there, or a different one.

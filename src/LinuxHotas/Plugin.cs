@@ -58,7 +58,8 @@ namespace LinuxHotas
             }
         }
 
-        /// <summary>The test aids' drive file (LinuxHotas.TestAids.xml builds include them); nothing otherwise.</summary>
+        /// <summary>The test aids' drive file, when a test build compiles them alongside (a separate source folder, not
+        /// part of the release); nothing otherwise.</summary>
         partial void TestAidsUpdate();
 
         /// <summary>Pulsar's plugin list calls this for the plugin's settings.</summary>

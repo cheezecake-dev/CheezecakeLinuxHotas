@@ -14,8 +14,8 @@ namespace LinuxHotas.Scripts
     /// <summary>
     /// wolfe's format (wolfe-labs/SE-AnalogThrottlePlugin), supported under his name so scripts written for his plugin run
     /// unchanged: every change since the last update, one per line as <c>device:axis:value</c>, run as the argument of each
-    /// programmable block named <c>[AnalogThrottle]</c> on the seat's grid. Axes are X Y Z RX RY RZ and S0 S1 (sliders)
-    /// at 0..65535, P0..P3 the hats as DirectInput angles (hundredths of a degree, 65535 centred), B0..B127 the buttons.
+    /// programmable block named <c>[AnalogThrottle]</c> on the seat's grid. Axes are X Y Z RX RY RZ and S0..S7 (sliders;
+    /// DirectInput, and so his plugin, has only S0 and S1) at 0..65535, P0..P3 the hats as DirectInput angles (hundredths of a degree, 65535 centred), B0..B127 the buttons.
     /// As in his plugin, a pressed button sends 0 and a released one 65535. The device is named as the kernel names it,
     /// which is usually, not always, the name Windows gives it. Written from his plugin's source, not copied.
     /// </summary>
