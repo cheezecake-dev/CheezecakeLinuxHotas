@@ -213,16 +213,18 @@ namespace LinuxHotas.Flight
 
     /// <summary>
     /// Wheels drive at full force whenever the forward request is not zero; this scales the force by how far it is
-    /// pushed. The request is the seat's move indicator, which keeps the joystick's fraction (a key gives 1, unchanged),
-    /// and reaches a server with this plugin too, so a host or dedicated server running it drives a client's wheels the
-    /// same way. Without it on the server, wheels stay on/off. Written with ananace's suspension patch as the reference.
+    /// pushed. The request is the seat's move indicator, which keeps the joystick's fraction (a key gives 1, unchanged).
+    /// Only the grid of the seat the local player is flying: other grids, a game controller's included, and other players'
+    /// on a lobby host, keep the game's on/off force. The force is worked out where the grid is simulated, so in
+    /// single player or on a lobby you host; on someone else's server, wheels stay on/off. Written with ananace's
+    /// suspension patch as the reference.
     /// </summary>
     [HarmonyPatch(typeof(Sandbox.Game.Entities.Cube.MyMotorSuspension), "Accelerate")]
     internal static class WheelPropulsionPatch
     {
         private static void Prefix(Sandbox.Game.Entities.Cube.MyMotorSuspension __instance, ref float force)
         {
-            if (__instance.PropulsionOverride != 0f)
+            if (__instance.PropulsionOverride != 0f || __instance.CubeGrid == null || __instance.CubeGrid != ShipControl.Seat?.CubeGrid)
                 return;
             var wheels = __instance.CubeGrid?.GridSystems?.WheelSystem;
             if (wheels == null)

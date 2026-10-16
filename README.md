@@ -17,11 +17,11 @@ On Windows, use ananace's [Analog Grid Control](https://github.com/ananace/dotne
   move, pitch, yaw, roll and the camera. Full deflection is full gyro torque on every axis, roll included.
 - Buttons and hat directions: fire, lock and release target, lights, dampeners, handbrake, power, parking, wheel jump,
   brakes, toolbar slots and pages, and a reverse for a throttle lever (tap to flip, or hold for as long as it is held).
-- Wheels: steering follows the stick; drive force follows the throttle (on a server, only where the server runs this
-  plugin too); a brake lever pulses the brakes in proportion to how far it is pulled.
-- Programmable blocks named `[AnalogThrottle]` on your grid get every axis and button change in the format of wolfe's
-  AnalogThrottle plugin, so scripts written for it work unchanged. Devices are named as Linux names them, which is usually,
-  not always, the name Windows gives them.
+- Wheels: steering follows the stick; drive force follows the throttle (in single player or on a lobby you host; on someone
+  else's server wheels drive at full force or none); a brake lever pulses the brakes in proportion to how far it is pulled.
+- Programmable blocks named `[AnalogThrottle]` on your grid that you have access to get every axis and button change in
+  the format of wolfe's AnalogThrottle plugin, so scripts written for it work unchanged. Devices are named as Linux names
+  them, which is usually, not always, the name Windows gives them.
 
 ## Setting up
 

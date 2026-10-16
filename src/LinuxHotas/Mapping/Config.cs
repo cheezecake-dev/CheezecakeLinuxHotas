@@ -73,8 +73,10 @@ namespace LinuxHotas.Mapping
                 string temp = path + ".tmp";
                 using (var writer = File.CreateText(temp))
                     new XmlSerializer(typeof(Config)).Serialize(writer, this);
-                File.Copy(temp, path, true);
-                File.Delete(temp);
+                if (File.Exists(path))
+                    File.Replace(temp, path, null);
+                else
+                    File.Move(temp, path);
             }
             catch (Exception e)
             {

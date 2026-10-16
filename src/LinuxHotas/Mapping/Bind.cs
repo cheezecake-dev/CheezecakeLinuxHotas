@@ -38,8 +38,9 @@ namespace LinuxHotas.Mapping
         public static string ButtonInput(int index) => $"Button{index + 1}";
         public static string HatInput(int hat, HatDirection direction) => $"Hat{hat + 1}{direction}";
 
+        // Enum.TryParse also takes numbers ("-1", "+20", " 20"), which would index past the device's axes.
         private static DeviceAxis? ParseAxis(string input) =>
-            !string.IsNullOrEmpty(input) && !char.IsDigit(input[0]) && Enum.TryParse(input, out DeviceAxis axis) ? axis : (DeviceAxis?)null;
+            !string.IsNullOrEmpty(input) && !char.IsDigit(input[0]) && Enum.TryParse(input, out DeviceAxis axis) && Enum.IsDefined(typeof(DeviceAxis), axis) ? axis : (DeviceAxis?)null;
 
         private static int? ParseButton(string input) =>
             input != null && input.StartsWith("Button") && int.TryParse(input.Substring(6), out int n) && n >= 1 && n <= JoystickDevice.MaxButtons ? n - 1 : (int?)null;
