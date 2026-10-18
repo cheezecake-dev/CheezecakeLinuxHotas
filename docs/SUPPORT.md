@@ -341,9 +341,11 @@ is run with the changes as its argument, in the format of wolfe's AnalogThrottle
 
 ## Log lines
 
-The plugin writes to the game's log. Every line begins with `LinuxHotas: `. Ask for the game's log,
-`~/.config/SpaceEngineers/SpaceEngineers.log` (the latest run), and search it for `LinuxHotas`. If the plugin does not appear
-to load at all, also ask for Pulsar's log, `info.log` in Pulsar's `Interim` folder.
+The plugin writes to the game's log. Every line begins with `LinuxHotas: `. Ask for the game's log, the newest
+`SpaceEngineers_<date>_<time>.log` in `~/.config/SpaceEngineers/` (one file, `SpaceEngineers.log`, with Pulsar's
+`-stableLogs` option), and search it for `LinuxHotas`. If the plugin does not appear to load at all, also ask for Pulsar's
+log, `~/.config/Pulsar/Legacy/info.log` (or `Interim/info.log` instead of `Legacy` if the player created an `Interim`
+folder in the Pulsar folder). Pulsar overwrites it on every launch, so ask for it right after the problem happens.
 
 ### Normal
 
@@ -518,5 +520,12 @@ Open an issue at https://github.com/cheezecake-dev/CheezecakeLinuxHotas/issues a
 - Whether the game runs natively through Pulsar's Interim launcher or under Proton.
 - The lines of the game's log that contain `LinuxHotas`, especially `Joystick found`, and any `Cannot ...` or
   `stopped after an error` line.
-- The plugin's settings file `Storage/LinuxHotas.cfg`, or the binds involved.
+- The plugin's settings file `~/.config/SpaceEngineers/Storage/LinuxHotas.cfg`, or the binds involved.
 - What was expected and what happened, and whether in single player, on a hosted lobby or on someone else's server.
+
+## Questions this guide doesn't answer
+
+If a question isn't covered here, or it looks like a bug, open an issue at
+https://github.com/cheezecake-dev/CheezecakeLinuxHotas/issues with the details listed under "Reporting a problem on
+GitHub". For anything else, ask Cheezecake, the plugin's author, directly in the Pulsar Discord by mentioning them in the
+message: a mention from the player is what notifies them.
